@@ -1,11 +1,4 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-// DEVA 2018-12-06
-
-$("#id").load('load', function () {
-        
-        $("#id").val($(".rows >tr").length + 1);
-});
+﻿// DEVA 2018-12-06
 
 $(".actionBtn").on("click", function () {
     addEntry($(this).attr("data-dataType"));
@@ -20,26 +13,28 @@ $(".actionDropDown").on("click", function () {
 //});
 
 function addEntry(givenClassType) {
-    if ($("#id").val().length > 0 && $("#firstName").val().length > 0 && $("#lastName").val().length > 0 && $("#age").val().length > 0)
-    {
+    if ($("#firstName").val().length > 0 && $("#lastName").val().length > 0 && $("#age").val().length > 0) {
+        var firstName = $("#firstName").val();
+        var lastName = $("#lastName").val();
+        var age = $("#age").val();
         $.ajax({
             type: "POST",
             url: "Home/AddEntry",
+            contentType: "application/json; charset=utf-8",
             data: {
-                id : $("#id").val(),
-                firstName: $("#firstName").val(),
-                lastName: $("#lastName").val(),
-                age: $("#age").val(),
+                person: {firstName, lastName, age},
                 classType: givenClassType
             },
             cache: false,
-            success: function() {
-                $(".rows").append("<tr class='" + givenClassType + "'> \
-                                       <td>" + $('#id').val() + "</td> \
+            success: function (response) {
+                if (response != null) {
+                    $(".rows").append("<tr class='" + givenClassType + "'> \
+                                       <td>" + response.id + "</td> \
                                        <td>" + $('#firstName').val() + "</td> \
                                        <td>" + $('#lastName').val() + "</td> \
                                        <td>" + $('#age').val() + "</td> \
                                    </tr>");
+                }
             }
         });
     }
@@ -49,3 +44,16 @@ function addEntry(givenClassType) {
     }
 }
 
+// send msg
+
+$("#send").on("click", function () {
+    if ($("#message").val().length < 1) {
+        document.getElementById("message").style.backgroundColor = "#e02c2c";
+        document.getElementById("message").style.color = "#fff";
+        return;
+    }
+    document.getElementById("message").style.backgroundColor = "transparent";
+    document.getElementById("message").style.color = "#000";
+    var href = $('.hiddenBtn').attr('href');
+    window.location.href = href;
+});

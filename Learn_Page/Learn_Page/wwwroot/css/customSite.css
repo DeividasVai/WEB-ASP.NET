@@ -116,3 +116,57 @@ th {
         width: 70%;
     }
 }
+
+/*-------------- about page*/
+
+.about-container {
+    width: 1000px;
+    height: 100px;
+}
+
+.remaining-panel:first-line {
+    font-size: 56px;
+}
+
+
+#first-h6 {
+    text-align: center;
+    font-family: cursive;
+}
+
+#about-me-para1 {
+    text-align: center;
+    font-family:cursive
+}
+
+#message {
+    background-color: #06d85f;
+    margin: 0 auto;
+    margin-top: 50px;;
+
+    height: 80vh;
+    background: #F2F2F2;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 2px #fff inset,
+                -1px -1px 2px #fff inset;
+    border-radius: 3px/6px;
+}
+
+.send-me-msg {
+    float: left;
+    height: 300px;
+}
+
+#message {
+    height: 150px;
+    width: 800px;
+}
+
+#send {
+    font-size: 16px;
+    font-family: cursive;
+    border: none;
+    border-radius: 8px 8px;
+    background-color: #98d2f2;
+    margin-left: 50px;
+}

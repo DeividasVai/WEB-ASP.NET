@@ -29,6 +29,14 @@ namespace Learn_Page.Controllers
             }
             else
             {
+                int id = 0;
+                foreach (Person per in cacheEntry)
+                {
+                    if (per.ID > id)
+                        id = per.ID;
+                }
+
+                person.ID = id+1;
                 cacheEntry.Add(person);
             }
 
@@ -38,7 +46,7 @@ namespace Learn_Page.Controllers
                 .SetSlidingExpiration(TimeSpan.FromSeconds(6000));
             _cache.Set("TableSave", cacheEntry, cacheEntryOptions);
 
-            return new JsonResult(null);
+            return Json(new { sucess = true, id = person.ID});
         }
 
         public IActionResult Index()
