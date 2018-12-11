@@ -7,13 +7,15 @@ namespace Learn_Page.Models
 {
     public class Person
     {
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Age { get; set; }
         public string ClassType { get; set; }
 
-        public Person(string name, string lastName, string age, string classType)
+        public Person(int id, string name, string lastName, string age, string classType)
         {
+            ID = id;
             FirstName = name;
             LastName = lastName;
             Age = age;

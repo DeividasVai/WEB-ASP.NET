@@ -50,8 +50,8 @@ namespace Learn_Page.Controllers
             {
                 cacheEntry = new List<Person>();
                 // Key not in cache, so get data.
-                cacheEntry.Add(new Person("Tom", "Phillips", "21", "active"));
-                cacheEntry.Add(new Person("Jeff", "Rodgers", "25", "active"));
+                cacheEntry.Add(new Person(1, "Tom", "Phillips", "21", "active"));
+                cacheEntry.Add(new Person(2, "Jeff", "Rodgers", "25", "active"));
 
                 // Set cache options.
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
