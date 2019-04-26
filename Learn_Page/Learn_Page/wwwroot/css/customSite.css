@@ -116,3 +116,26 @@ th {
         width: 70%;
     }
 }
+
+/*----------Shop------------*/
+
+#shop-front-page {
+    padding-top: 20px;
+}
+
+#shop-categories {
+    height: auto;
+    width: auto;
+    border-radius: 10px 10px;
+    text-align: center;
+}
+
+.grad-left {
+    background-image: linear-gradient(to right, #fff9f9, #ffffff);
+    border-radius: 30px;
+}
+
+.selection-category {
+    margin-left: 10px;
+    margin-right: 10px;
+}
